@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
-
 _s
 ===
 
@@ -16,8 +14,6 @@ My ultra-minimal CSS might make me look like theme tartare but that means less s
 * 2 sample layouts in `sass/layouts/` made using CSS Grid for a sidebar on either side of your content. Just uncomment the layout of your choice in `sass/style.scss`.
 Note: `.no-sidebar` styles are automatically loaded.
 * Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-* Full support for `WooCommerce plugin` integration with hooks in `inc/woocommerce.php`, styling override woocommerce.css with product gallery features (zoom, swipe, lightbox) enabled.
-* Licensed under GPLv2 or later. :) Use it to make something cool.
 
 Installation
 ---------------
@@ -27,7 +23,6 @@ Installation
 `_s` requires the following dependencies:
 
 - [Node.js](https://nodejs.org/)
-- [Composer](https://getcomposer.org/)
 
 ### Quick Start
 
@@ -40,31 +35,29 @@ Clone or download this repository, change its name to something else (like, say,
 5. Search for `_s-` to capture prefixed handles and replace with: `megatherium-is-awesome-`.
 6. Search for `_S_` (in uppercase) to capture constants and replace with: `MEGATHERIUM_IS_AWESOME_`.
 
-Then, update the stylesheet header in `style.css`, the links in `footer.php` with your own information and rename `_s.pot` from `languages` folder to use the theme's slug. Next, update or delete this readme.
+Then, update the stylesheet header in `style.scss`, the links in `footer.php` with your own information and rename `_s.pot` from `languages` folder to use the theme's slug. Next, update or delete this readme.
 
 ### Setup
 
-To start using all the tools that come with `_s`  you need to install the necessary Node.js and Composer dependencies :
+To start using all the tools that come with `_s`  you need to install the necessary Node.js dependencies :
 
 ```sh
-$ composer install
-$ npm install
+$ nvm install lts/iron # car node-sass ne supporte que jusqu'à la v20 (https://github.com/sass/node-sass/releases/tag/v9.0.0)
+$ nvm use lts/iron
+$ npm update --save-dev
+$ npm install # Now using node v20.18.1 (npm v10.8.2)
 ```
 
 ### Available CLI commands
 
 `_s` comes packed with CLI commands tailored for WordPress theme development :
 
-- `composer lint:wpcs` : checks all PHP files against [PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/).
-- `composer lint:php` : checks all PHP files for syntax errors.
-- `composer make-pot` : generates a .pot file in the `languages/` directory.
+- `npm run makepot` : generates a .pot file in the `languages/` directory.
 - `npm run compile:css` : compiles SASS files to css.
-- `npm run compile:rtl` : generates an RTL stylesheet.
+- `npm run compile:js` : compiles js files to a single file.
 - `npm run watch` : watches all SASS files and recompiles them to css when they change.
+- `npm run start` : wp-scripts start.
+- `npm run format` : wp-scripts format.
 - `npm run lint:scss` : checks all SASS files against [CSS Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/).
 - `npm run lint:js` : checks all JavaScript files against [JavaScript Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/).
 - `npm run bundle` : generates a .zip archive for distribution, excluding development and system files.
-
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
-
-Good luck!

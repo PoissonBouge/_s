@@ -1,6 +1,16 @@
-/node_modules
-/vendor
+# extensions à toujours ignorer
+*~
+*.sass-cache
+*.map
+*.css.map
+
+# fichiers ou dossiers des OS
+.DS_Store
+Thumbs.db
+
+# fichiers ou dossiers à toujours ignorer
+.vscode
+node_modules/
+vendor/
 package-lock.json
 composer.lock
-style.css.map
-.DS_Store

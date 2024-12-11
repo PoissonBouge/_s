@@ -28,7 +28,7 @@ function _s_setup() {
 		*/
 	load_theme_textdomain( '_s', get_template_directory() . '/languages' );
 
-	// Add default posts and comments RSS feed links to head.
+	// Add default posts RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
 	/*
@@ -54,15 +54,13 @@ function _s_setup() {
 	);
 
 	/*
-		* Switch default core markup for search form, comment form, and comments
+		* Switch default core markup for search form
 		* to output valid HTML5.
 		*/
 	add_theme_support(
 		'html5',
 		array(
 			'search-form',
-			'comment-form',
-			'comment-list',
 			'gallery',
 			'caption',
 			'style',
@@ -138,14 +136,13 @@ add_action( 'widgets_init', '_s_widgets_init' );
  * Enqueue scripts and styles.
  */
 function _s_scripts() {
+
+	// styles
 	wp_enqueue_style( '_s-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( '_s-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	// scripts
+	$asset_file = include( plugin_dir_path( __FILE__ ) . 'build/index.asset.php');
+	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/build/index.js', $asset_file['dependencies'], $asset_file['version'], true );
 }
 add_action( 'wp_enqueue_scripts', '_s_scripts' );
 
@@ -168,17 +165,3 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
-
-/**
- * Load WooCommerce compatibility file.
- */
-if ( class_exists( 'WooCommerce' ) ) {
-	require get_template_directory() . '/inc/woocommerce.php';
-}

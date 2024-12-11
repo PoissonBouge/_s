@@ -1,16 +1,14 @@
 === _s ===
 
-Contributors: automattic
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Contributors: automattic, ppezier, poissonbouge
+Tags: custom-background, custom-logo, custom-menu, featured-images, translation-ready
 
 Requires at least: 4.5
-Tested up to: 5.4
+Tested up to: 6.6.1
 Requires PHP: 5.6
 Stable tag: 1.0.0
-License: GNU General Public License v2 or later
-License URI: LICENSE
 
-A starter theme called _s, or underscores.
+Thème de démarrage Poisson Bouge, adapté du starter theme de Automattic
 
 == Description ==
 
@@ -22,15 +20,9 @@ Hi. I'm a starter theme called _s, or underscores, if you like. I'm a theme mean
 2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
 
-== Frequently Asked Questions ==
-
-= Does this theme support any plugins? =
-
-_s includes support for WooCommerce and for Infinite Scroll in Jetpack.
-
 == Changelog ==
 
-= 1.0 - May 12 2015 =
+= 1.0 - 14/08/2024 =
 * Initial release
 
 == Credits ==
